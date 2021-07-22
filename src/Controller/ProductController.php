@@ -8,27 +8,31 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ProductController extends AbstractController
 {
-         /**
-          * @Route("/")
+
+           /**
+          * @Route("/", name="homepage")
           */
           public function index()
           {
-              $number = 4;
-            return $this->render('index.html.twig', [
-                'number' => $number,
-            ]);
+            return $this->render('index.html.twig');
           }
 
 
          /**
-          * @Route("/cart")
+          * @Route("/products", name="products")
+          */
+          public function products()
+          {
+            return $this->render('products.html.twig');
+          }
+
+
+         /**
+          * @Route("/cart", name="cart")
           */
           public function cart()
           {
-              $number = 4;
-            return $this->render('cart.html.twig', [
-                'number' => $number,
-            ]);
+            return $this->render('cart.html.twig');
           }
 
 }
