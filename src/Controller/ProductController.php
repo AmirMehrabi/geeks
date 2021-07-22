@@ -19,4 +19,16 @@ class ProductController extends AbstractController
             ]);
           }
 
+
+         /**
+          * @Route("/cart")
+          */
+          public function cart()
+          {
+              $number = 4;
+            return $this->render('cart.html.twig', [
+                'number' => $number,
+            ]);
+          }
+
 }
