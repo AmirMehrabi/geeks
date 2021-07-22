@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\Product;
 
 class ProductController extends AbstractController
 {
@@ -23,7 +24,15 @@ class ProductController extends AbstractController
           */
           public function products()
           {
-            return $this->render('products.html.twig');
+            
+            $products = $this->getDoctrine()
+            ->getRepository(Product::class)
+            ->findAll();
+
+            return $this->render('products.html.twig', [
+              'products' => $products
+            ]);
+
           }
 
 
