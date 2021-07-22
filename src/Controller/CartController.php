@@ -28,7 +28,7 @@ class CartController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $cart->setUpdatedAt(new \DateTime());
             $cartManager->save($cart);
-
+            $this->addFlash('success', 'Your cart has been updated.');
             return $this->redirectToRoute('cart');
         }
 
