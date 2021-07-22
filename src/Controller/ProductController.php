@@ -58,6 +58,8 @@ class ProductController extends AbstractController
 
             $cartManager->save($cart);
 
+            $this->addFlash('success', 'Your cart has been updated.');
+
             return $this->redirectToRoute('product.detail', ['id' => $product->getId()]);
         }
 
@@ -67,12 +69,5 @@ class ProductController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/cart", name="cart")
-     */
-    public function cart()
-    {
-        return $this->render('cart.html.twig');
-    }
 
 }
